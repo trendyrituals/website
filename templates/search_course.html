@@ -1,0 +1,85 @@
+{% extends "dash.html" %}
+
+
+
+{% block content %}
+
+
+{{ cool }}
+<div>
+
+	<h4>Search Course <small>search by course id, subject, course name, topics</small></h4>
+	<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+
+	<div class="col-sm-offset-4">
+		<form class="navbar-form" method="GET" action="" role="search">
+	        <div class="form-group">
+	          <input class="form-control" name="q" placeholder="Search" type="text" value="{{ request.GET.q }}">
+	        </div>
+	        <button type="submit" class="btn btn-default">Submit</button>
+      	</form>
+	</div>
+
+	{% for obj in object_list %}
+
+	<div class="row" style="margin-top: 40px;">
+	      
+	        <div class="media col-md-3" style="height: 180px;">
+	            <figure class="pull-left">
+	                <img class="media-object img-rounded img-responsive"  src="{{ obj.file.url }}" style="filter: blur(1.8px);" alt="placehold.it/350x250" >
+	            </figure>
+	        </div>
+	     
+	        <div class="col-md-6">
+		        <blockquote class="blockquote">
+		          <p>{{ obj.course_name }}</p>
+		          <small>{{ obj.description | truncatechars:300 }}</small>
+		        </blockquote>
+	        </div>
+	      
+	        <div class="col-md-3 text-center">
+	            <h2><small> # </small> {{ obj.id }} </h2>
+	            <a href="/desk/view_course/{{ obj.id }}/" class="btn btn-default btn-lg btn-block"> View Now! </a>
+	            
+	        </div>
+	</div>
+
+	{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if object_list.has_previous %}
+            <a href="?page={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }} {% endif %}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+        </span>
+
+        {% if object_list.has_next %}
+            <a href="?page={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }} {% endif %}">next</a>
+        {% endif %}
+    </span>
+</div>
+
+
+</div>
+
+<!-- Block right click java script -->
+<script type="text/javascript">
+function click (e) {
+  if (!e)
+    e = window.event;
+  if ((e.type && e.type == "contextmenu") || (e.button && e.button == 2) || (e.which && e.which == 3)) {
+    if (window.opera)
+      window.alert("");
+    return false;
+  }
+}
+if (document.layers)
+  document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown = click;
+document.oncontextmenu = click;
+</script>
+
+{% endblock content %}

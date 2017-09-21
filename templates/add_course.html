@@ -1,0 +1,31 @@
+{% extends "dash.html" %}
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+
+
+
+<div>
+	<h3>Add New Course</h3><br>
+	<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><br><br>
+
+
+<div class="col-sm-6 col-sm-offset-3" style="margin-top: 40px;">
+	<form method="POST" action="" enctype="multipart/form-data"> {% csrf_token %}
+		{{ form|crispy }}
+		<input type="submit" class="btn btn-primary" name="create" value="Create">
+	</form>
+</div>
+
+
+</div>
+
+
+{% endblock content %}
+
+
+
+
+

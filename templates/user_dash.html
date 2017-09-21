@@ -1,0 +1,126 @@
+{% extends "dash.html" %}
+
+
+
+{% block content %}
+
+<div class="row" style="margin-top: 20px;">
+
+
+<div class="col-sm-3">
+  <div  style="text-align: center;">
+    <span><i class="fa fa-life-ring fa-3x" aria-hidden="true"></i></span>
+    <span><h3>{{ coin }}</h3> Total Coins </span>
+  </div>
+</div>
+
+
+<div class="col-sm-3">
+  <div  style="text-align: center;">
+    <span><i class="fa fa-book fa-3x" aria-hidden="true"></i></span>
+    <span><h3>{{ course_count }}</h3> User's Course </span>
+  </div>
+</div>
+
+
+<div class="col-sm-6">
+  <div class="well">
+    <h4>{{ user }}</h4>
+    <h6>{{ email }}</h6>
+    
+  </div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div style="margin-top: 20px;">
+  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</div>
+
+
+<br>
+<br>
+
+
+<h3>Newly Added Courses</h3><hr><br>
+
+
+
+
+
+{% for course in courses %}
+
+<div class="row" style="margin-top: 40px;">
+      
+        <div class="media col-md-3" style="height: 180px;">
+            <figure class="pull-left">
+                <img class="media-object img-rounded img-responsive"  src="{{ course.file.url }}" style="filter: blur(1.8px);" alt="placehold.it/350x250" >
+            </figure>
+        </div>
+      
+
+      
+        <div class="col-md-6">
+        <blockquote class="blockquote">
+          <p>{{ course.course_name }}</p>
+          <small>{{ course.description | truncatechars:300 }}</small>
+        </blockquote>
+        </div>
+      
+
+        <div class="col-md-3 text-center">
+            <h2><small> # </small> {{ course.id }} </h2>
+            <a type="button" href="/desk/view_course/{{ course.id }}/" class="btn btn-default btn-lg btn-block"> View Now! </a>
+            
+        </div>
+</div>
+
+{% endfor %}
+
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if courses.has_previous %}
+            <a href="?page={{ courses.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ courses.number }} of {{ courses.paginator.num_pages }}.
+        </span>
+
+        {% if courses.has_next %}
+            <a href="?page={{ courses.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
+
+
+
+
+<!-- Block right click java script -->
+<script type="text/javascript">
+function click (e) {
+  if (!e)
+    e = window.event;
+  if ((e.type && e.type == "contextmenu") || (e.button && e.button == 2) || (e.which && e.which == 3)) {
+    if (window.opera)
+      window.alert("");
+    return false;
+  }
+}
+if (document.layers)
+  document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown = click;
+document.oncontextmenu = click;
+</script>
+
+
+{% endblock content %}

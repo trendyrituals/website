@@ -1,0 +1,151 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>User DashBoard</title>
+
+    <!-- Bootstrap -->
+    <link href='{% static "css/dashboard.min.css" %}' rel="stylesheet">
+    <link href='{% static "css/style.css" %}' rel="stylesheet">
+<link href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+
+	<nav class="navbar navbar-default navbar-static-top">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="/desk/">
+		<img alt="Brand" src="...">
+	      </a>
+	    </div>
+
+		<ul class="nav navbar-nav navbar-right">
+        
+		<li class="dropdown">
+		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">UserName <span class="caret"></span></a>
+		  <ul class="dropdown-menu">
+		    <li><a href="/desk/profile/">Profile</a></li>
+		    <li><a href="/desk/summary/">Account Summary</a></li>
+		   
+		    <li role="separator" class="divider"></li>
+		    <li><a href="/desk/logout/">Logout</a></li>
+		  </ul>
+		</li>
+	      </ul>
+
+	  </div>
+	</nav>
+
+
+<div class="container">
+
+
+
+<div>
+	
+
+	<div>
+		<div class="row">
+			<h2 class="text-center">Services Blocks</h2>
+	            <div class="row">
+
+
+
+	                <div class="col-md-4 text-center">
+	                    <div class="box">
+	                        <div class="box-content">
+	                            <h1 class="tag-title">Heading</h1>
+	                            <hr />
+	                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pharetra quam sollicitudin nibh aliquam finibus. Etiam efficitur felis vel imperdiet varius. Maecenas bibendum elementum molestie.</p>
+	                            <br />
+	                            
+	                        </div>
+	                    </div>
+	                </div>
+
+
+
+
+	                <div class="col-md-4 text-center">
+	                    <div class="box">
+	                        <div class="box-content">
+	                            <h1 class="tag-title">Heading</h1>
+	                            <hr />
+	                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pharetra quam sollicitudin nibh aliquam finibus. Etiam efficitur felis vel imperdiet varius. Maecenas bibendum elementum molestie.</p>
+	                            <br />
+	                            
+	                        </div>
+	                    </div>
+	                </div>
+
+
+
+
+	                <div class="col-md-4 text-center">
+	                    <div class="box">
+	                        <div class="box-content">
+	                            <h1 class="tag-title">Heading</h1>
+	                            <hr />
+	                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pharetra quam sollicitudin nibh aliquam finibus. Etiam efficitur felis vel imperdiet varius. Maecenas bibendum elementum molestie.</p>
+	                            <br />
+	                            
+	                        </div>
+	                    </div>
+	                </div>
+
+
+
+	            </div>           
+	        </div>
+	</div>
+
+	<div style="text-align: center;margin-top: 40px;"><a href="ready_user/{{ request.user }}" class="btn btn-primary">Let's Start</a></div>
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+  </body>
+</html>
+
+
+
+

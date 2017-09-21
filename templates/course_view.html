@@ -1,0 +1,23 @@
+{% extends "dash.html" %}
+
+
+
+{% block content %}
+
+
+<div>
+<h3>{{ title }}</h3>
+<h4>{{ subject }}</h4>
+<p>{{ instance.timestamp }}</p>
+<hr>
+<p>{{ description }}</p>
+<div>
+	<img src="{{ instance.file.url }}" class="img-responsive">
+</div>
+	<br>
+	<p>you can download this image by using right click.</p>
+</div>
+
+
+
+{% endblock content %}

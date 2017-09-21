@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<div class="container">
+        
+        <div class="col-sm-6">
+			<h1>Login to Your Account</h1><br>
+			<form method="POST" action="">{% csrf_token %}
+			{{ form|crispy}}
+			<input type="submit" class="btn btn-primary btn-lg btn-block"  value="Login">
+			</form>
+
+
+			<div style="margin-top: 20px;">
+				<p>Don't have an account yet? <a href="/registration">Create Account</a> </p>
+				
+			</div>
+
+			
+        </div>
+
+        <div class="col-sm-6" style="margin-top: 20px;">
+			<p>simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+			<p>simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+        </div>
+          
+       
+</div><!-- /.container -->
+			<br>
+			<br>
+			<br>
+			<br>
+{% endblock content %}
+
+       
+
